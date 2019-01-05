@@ -1,0 +1,41 @@
+Thank you for your reading.
+
+This program can get running smoothly, and have the right output as supposed. Also, I break the mission into smaller task and keep everything object-oriented, which means I don’t need to change lots of things when modification is required. And in case it’s a little bit hard to understand, I put some comments next to statements, which is also helpful for future debug(if necessary). And I also finished the Bonus-task, you may find some relevant comment in this document below.
+
+
+As you may noticed, their are significant changes from my initial design to the final implementation. At first, I think those guesses or codes should be in the form of integer, and when I try to compare the cows and bulls between two numbers, it turns out to be a little complex. So I just change idea and set all those numbers to int[], and the compare becomes easier. However, this leads to some further problems, like saving multiple possible guesses or codes. I have to put them into a two-dimension integer array like int[][] or a Arraylist<int[]>.   
+
+The initial idea is correct, but for the feasibility of the program, some new method are included into the final version.
+
+
+—Bonus part————
+
+Few days before the end of the mid-term break, I started to do the bonus tasks, and:
+
+
+1, You may find the relevant method in “Bonus” class called “set turn”, which let the user set the number of the turns of the game in the beginning.
+
+
+2, I’ve added setCodeLength method in the Bonus Class. And now everytime the user and computer try to guess, a parameter of the length of the code will be passed in. The algorithm for the hardAI-generateAllpossibilities is quite basic, and for better understanding I’m going to explain it here:
+(For example, the length of the code is 5.)
+The main idea is to generate all random numbers of a specific length and try to identify  whether each of them is correct or not.
+
+1)The guesslist is filled with no-repetitive-digit numbers, so at first I try to find the Bottom and the Top of the guesslist.(When code length is 5, the smallest possible number is 01234 and the biggest possible number is 98765).This may help me reduce the range of the guesslist, making the program a little bit faster. 
+2) You may already noticed that 01234 is not a valid int. So in my program I start with 1234, and if the number is valid, I will add a zero before it later on. There are method called numberValid(checking whether a number has repetitive digits) and notContainZero(because I’m going to add a 0 later, so the number itself cannot contains zero.)
+3) Only those numbers smaller than a specific boundary(9999) need to add a zero before them. So I write a boundary method trying to seperate these numbers in later loop.
+4) Now all the preparation is done, I create a arraylist of int[]. Every time I find a valid number, this number will be put into the arraylist.
+5) Because this algorithm is not that advanced, it may take some time when the length of code is greater than 7.(When the length becomes bigger, the hardAI computer algorithm turns out to be very efficient)
+
+
+3,
+Bonus 3 contains so much change, nearly the whole program is completely changed. You may find lots of functions are commented out because of this.
+The last one nearly beats me. Now that the code type has changed, I’ve replace all int[] to String[]. The most challenging part for the hardAI is to generate the initial possibleList. 
+
+In order to achieve this, I used HashSet to make sure the generated code won’t has repetitive characters. Also, I switch between different ArrayList<String> inside the loop to keep the possibleList updated.
+
+
+
+———
+In the end:
+The assignment during the mid-term break is really interesting and significant for me. It really helps me to practise a lot through level-up challenges. Really appreciate it.
+And thank you very much.
